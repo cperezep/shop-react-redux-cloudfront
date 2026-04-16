@@ -1,8 +1,8 @@
-import axios, { AxiosError } from 'axios';
+import axios, { type AxiosError } from 'axios';
 import React from 'react';
-import { useQuery, useQueryClient, useMutation } from 'react-query';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 import API_PATHS from '~/constants/apiPaths';
-import { CartItem } from '~/models/CartItem';
+import type { CartItem } from '~/models/CartItem';
 
 export function useCart() {
   return useQuery<CartItem[], AxiosError>('cart', async () => {
@@ -22,7 +22,10 @@ export function useCartData() {
 
 export function useInvalidateCart() {
   const queryClient = useQueryClient();
-  return React.useCallback(() => queryClient.invalidateQueries('cart', { exact: true }), []);
+  return React.useCallback(
+    () => queryClient.invalidateQueries('cart', { exact: true }),
+    [queryClient.invalidateQueries],
+  );
 }
 
 export function useUpsertCart() {

@@ -1,7 +1,7 @@
 import { OrderStatus } from '~/constants/order';
-import { CartItem } from '~/models/CartItem';
-import { Order } from '~/models/Order';
-import { AvailableProduct, Product } from '~/models/Product';
+import type { CartItem } from '~/models/CartItem';
+import type { Order } from '~/models/Order';
+import type { AvailableProduct, Product } from '~/models/Product';
 
 export const products: Product[] = [
   {

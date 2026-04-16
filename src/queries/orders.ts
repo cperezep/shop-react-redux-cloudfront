@@ -1,9 +1,9 @@
-import axios, { AxiosError } from 'axios';
+import axios, { type AxiosError } from 'axios';
 import React from 'react';
-import { useQuery, useQueryClient, useMutation } from 'react-query';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 import API_PATHS from '~/constants/apiPaths';
-import { OrderStatus } from '~/constants/order';
-import { Order } from '~/models/Order';
+import type { OrderStatus } from '~/constants/order';
+import type { Order } from '~/models/Order';
 
 export function useOrders() {
   return useQuery<Order[], AxiosError>('orders', async () => {
@@ -14,7 +14,10 @@ export function useOrders() {
 
 export function useInvalidateOrders() {
   const queryClient = useQueryClient();
-  return React.useCallback(() => queryClient.invalidateQueries('orders', { exact: true }), []);
+  return React.useCallback(
+    () => queryClient.invalidateQueries('orders', { exact: true }),
+    [queryClient.invalidateQueries],
+  );
 }
 
 export function useUpdateOrderStatus() {
@@ -40,7 +43,10 @@ export function useSubmitOrder() {
 
 export function useInvalidateOrder() {
   const queryClient = useQueryClient();
-  return React.useCallback((id: string) => queryClient.invalidateQueries(['order', { id }], { exact: true }), []);
+  return React.useCallback(
+    (id: string) => queryClient.invalidateQueries(['order', { id }], { exact: true }),
+    [queryClient.invalidateQueries],
+  );
 }
 
 export function useDeleteOrder() {

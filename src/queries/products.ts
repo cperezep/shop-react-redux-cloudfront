@@ -1,8 +1,8 @@
-import axios, { AxiosError } from 'axios';
-import API_PATHS from '~/constants/apiPaths';
-import { AvailableProduct } from '~/models/Product';
-import { useQuery, useQueryClient, useMutation } from 'react-query';
+import axios, { type AxiosError } from 'axios';
 import React from 'react';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
+import API_PATHS from '~/constants/apiPaths';
+import type { AvailableProduct } from '~/models/Product';
 
 export function useAvailableProducts() {
   return useQuery<AvailableProduct[], AxiosError>('available-products', async () => {
@@ -13,7 +13,10 @@ export function useAvailableProducts() {
 
 export function useInvalidateAvailableProducts() {
   const queryClient = useQueryClient();
-  return React.useCallback(() => queryClient.invalidateQueries('available-products', { exact: true }), []);
+  return React.useCallback(
+    () => queryClient.invalidateQueries('available-products', { exact: true }),
+    [queryClient.invalidateQueries],
+  );
 }
 
 export function useAvailableProduct(id?: string) {
@@ -29,7 +32,10 @@ export function useAvailableProduct(id?: string) {
 
 export function useRemoveProductCache() {
   const queryClient = useQueryClient();
-  return React.useCallback((id?: string) => queryClient.removeQueries(['product', { id }], { exact: true }), []);
+  return React.useCallback(
+    (id?: string) => queryClient.removeQueries(['product', { id }], { exact: true }),
+    [queryClient.removeQueries],
+  );
 }
 
 export function useUpsertAvailableProduct() {

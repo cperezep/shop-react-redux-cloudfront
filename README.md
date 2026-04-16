@@ -12,8 +12,7 @@ This is frontend starter project for nodejs-aws mentoring program. It uses the f
 - [Serverless](https://serverless.com/) as a serverless framework
 - [Vitest](https://vitest.dev/) as a test runner
 - [MSW](https://mswjs.io/) as an API mocking library
-- [Eslint](https://eslint.org/) as a code linting tool
-- [Prettier](https://prettier.io/) as a code formatting tool
+- [Biome](https://biomejs.dev/) as a code linting and formatting tool
 - [TypeScript](https://www.typescriptlang.org/) as a type checking tool
 
 ## Deployed Links
@@ -41,7 +40,7 @@ Starts the project in production mode on local environment.
 
 Runs tests in console, in browser or with coverage.
 
-### `lint`, `prettier`
+### `lint`
 
 Runs linting and formatting for all files in `src` folder.
 

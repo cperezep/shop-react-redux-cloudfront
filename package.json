@@ -30,16 +30,16 @@
     "cdk:build:deploy": "npm run build && cp -r dist/. infra/resources/build/ && npm run cdk:deploy"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
-    "@mui/icons-material": "^5.8.4",
-    "@mui/material": "^5.8.7",
-    "@mui/styles": "^5.8.7",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^7.3.10",
+    "@mui/material": "^7.3.10",
     "@types/yup": "^0.29.14",
     "axios": "^0.27.2",
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-is": "^18.3.1",
     "react-query": "^3.39.1",
     "react-router-dom": "^6.3.0",
     "yup": "^0.32.11"
@@ -74,5 +74,8 @@
   },
   "engines": {
     "node": ">=14.0.0"
+  },
+  "overrides": {
+    "react-is": "^18.3.1"
   }
 }

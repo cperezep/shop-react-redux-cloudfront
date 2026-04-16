@@ -1,5 +1,5 @@
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
+import Grid from "@mui/material/GridLegacy";
 import CartItems from "~/components/CartItems/CartItems";
 import { FormikValues } from "formik";
 import { CartItem } from "~/models/CartItem";

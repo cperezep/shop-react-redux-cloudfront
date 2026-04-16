@@ -22,7 +22,12 @@
     "cloudfront:build:deploy:nc": "npm run client:build:deploy:nc && npm run cloudfront:invalidateCache",
     "cloudfront:update:build:deploy": "npm run cloudfront:setup && npm run cloudfront:build:deploy",
     "cloudfront:update:build:deploy:nc": "npm run cloudfront:setup && npm run cloudfront:build:deploy:nc",
-    "serverless:remove": "sls remove"
+    "serverless:remove": "sls remove",
+    "cdk:install": "cd infra && npm install",
+    "cdk:synth": "cd infra && cdk synth",
+    "cdk:deploy": "cd infra && cdk deploy --require-approval never",
+    "cdk:destroy": "cd infra && cdk destroy --force",
+    "cdk:build:deploy": "npm run build && cp -r dist/. infra/resources/build/ && npm run cdk:deploy"
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",

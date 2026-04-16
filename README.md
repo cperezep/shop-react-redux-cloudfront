@@ -16,6 +16,13 @@ This is frontend starter project for nodejs-aws mentoring program. It uses the f
 - [Prettier](https://prettier.io/) as a code formatting tool
 - [TypeScript](https://www.typescriptlang.org/) as a type checking tool
 
+## Deployed Links
+
+- **CloudFront URL**: https://d3pqpnks0n1n0o.cloudfront.net
+- **S3 Bucket**: deploywebappstack-deploymentfrontendbucket67ceb713-emgdv5lavdxf
+
+**Note**: The S3 bucket has `BlockPublicAccess.BLOCK_ALL` configured, so it is not directly accessible as a public website URL — only CloudFront can access it via OAC. The meaningful public link is the CloudFront URL only.
+
 ## Available Scripts
 
 ### `start`
@@ -69,3 +76,23 @@ Combination of `cloudfront:setup` and `cloudfront:build:deploy` commands with or
 ### `serverless:remove`
 
 Remove an entire stack configured in `serverless.yml` via CloudFormation.
+
+### `cdk:install`
+
+Install dependencies for the CDK infrastructure project (`infra/`).
+
+### `cdk:synth`
+
+Synthesize the CloudFormation template from the CDK app to validate the infrastructure configuration.
+
+### `cdk:deploy`
+
+Deploy the CDK stack to AWS (S3 bucket + CloudFront distribution). Uploads build assets and automatically invalidates the CloudFront cache.
+
+### `cdk:destroy`
+
+Destroy all AWS resources created by the CDK stack (S3 bucket and CloudFront distribution).
+
+### `cdk:build:deploy`
+
+Combination of `build`, copying `dist/` to `infra/resources/build/`, and `cdk:deploy`. Full pipeline to build and deploy the app with CloudFront cache invalidation.

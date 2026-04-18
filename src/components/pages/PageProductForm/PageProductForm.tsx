@@ -1,5 +1,5 @@
 import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
+import Grid from "@mui/material/GridLegacy";
 import { AvailableProduct, AvailableProductSchema } from "~/models/Product";
 import { Formik, Field, FormikProps, Form } from "formik";
 import TextField from "~/components/Form/TextField";

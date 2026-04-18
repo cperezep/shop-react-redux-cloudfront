@@ -2,7 +2,7 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Grid from "@mui/material/Grid";
+import Grid from "@mui/material/GridLegacy";
 import Typography from "@mui/material/Typography";
 import { formatAsPrice } from "~/utils/utils";
 import AddProductToCart from "~/components/AddProductToCart/AddProductToCart";
@@ -17,7 +17,6 @@ export default function Products() {
 
   return (
     <Grid container spacing={4}>
-      {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
       {data.map(({ count, ...product }, index) => (
         <Grid item key={product.id} xs={12} sm={6} md={4}>
           <Card

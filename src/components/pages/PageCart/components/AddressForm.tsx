@@ -1,4 +1,4 @@
-import Grid from "@mui/material/Grid";
+import Grid from "@mui/material/GridLegacy";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
